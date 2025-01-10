@@ -1,0 +1,17 @@
+volumes:
+  data:
+    name: ${MY_VOLUME_NAME_REDIS}
+
+services:
+  redis:
+    image: bitnami/redis
+    container_name: ${MY_CONTAINER_NAME_REDIS}
+    restart: unless-stopped
+    ports:
+      - ${MY_PORT_NUMBER_REDIS}:6379
+    volumes:
+      - data:/bitnami/redis/data
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    env_file:
+      - ../stack.env
