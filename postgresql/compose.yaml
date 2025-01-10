@@ -1,6 +1,10 @@
 volumes:
   data:
     name: postgresql_data
+  initdb:
+    name: postgresql_initdb
+  preinitdb:
+    name: postgresql_preinitdb
 
 services:
   postgresql:
@@ -11,6 +15,8 @@ services:
       - 5432:5432
     volumes:
       - data:/bitnami/postgresql
+      - initdb:/docker-entrypoint-initdb.d
+      - preinitdb:/docker-entrypoint-initdb.d
     environment:
       POSTGRESQL_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     env_file:
