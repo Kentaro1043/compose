@@ -19,3 +19,5 @@ services:
       - preinitdb:/docker-entrypoint-initdb.d
     environment:
       POSTGRESQL_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - ../stack.env
