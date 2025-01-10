@@ -8,7 +8,7 @@ services:
     container_name: misskey_redis
     restart: unless-stopped
     ports:
-      - ${MY_PORT_NUMBER_REDIS}:6379
+      - 49152:6379
     volumes:
       - data:/bitnami/redis/data
     environment:
