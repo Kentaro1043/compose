@@ -1,0 +1,17 @@
+volumes:
+  data:
+    name: postgresql_data
+
+services:
+  postgresql:
+    image: bitnami/postgresql
+    container_name: postgresql
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    volumes:
+      - data:/bitnami/postgresql
+    environment:
+      POSTGRESQL_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - stack.env
