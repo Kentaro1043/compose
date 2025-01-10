@@ -14,4 +14,4 @@ services:
     environment:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
     env_file:
-      - ../stack.env
+      - ../../stack.env
