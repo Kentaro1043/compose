@@ -4,5 +4,7 @@ services:
     container_name: cloudflared
     restart: unless-stopped
     command: tunnel --no-autoupdate run --token ${CLOUDFLARED_TOKEN}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     env_file:
       - ../stack.env
