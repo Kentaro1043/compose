@@ -1,6 +1,8 @@
 volumes:
   data:
     name: vaultwarden_data
+  attachments:
+    name: vaultwarden_attachments
 
 networks:
   postgresql:
@@ -18,6 +20,7 @@ services:
       - postgresql
     volumes:
       - data:/data
+      - attachments:/attachments
     environment:
       DOMAIN: ${VW_DOMAIN}
       SIGNUPS_ALLOWED: true
