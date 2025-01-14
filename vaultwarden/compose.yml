@@ -1,3 +1,7 @@
+volumes:
+  data:
+    name: vaultwarden_data
+
 networks:
   postgresql:
     name: postgresql_service
@@ -12,6 +16,8 @@ services:
       - "49153:80"
     networks:
       - postgresql
+    volumes:
+      - data:/data
     environment:
       DOMAIN: ${VW_DOMAIN}
       SIGNUPS_ALLOWED: true
