@@ -1,0 +1,30 @@
+networks:
+  postgresql:
+    name: postgresql_service
+    external: true
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    ports:
+      - "49153:80"
+    networks:
+      - postgresql
+    environment:
+      DOMAIN: ${VW_DOMAIN}
+      SIGNUPS_ALLOWED: true
+      INVIATION_ALLOWED: false
+      PUSH_ENABLED: true
+      PUSH_INSTALLATION_ID: ${VW_PUSH_INSTALLATION_ID}
+      PUSH_INSTALLATION_KEY: ${VW_PUSH_INSTALLATION_KEY}
+      SMTP_HOST: smtp.gmail.com
+      SMTP_PORT: 587
+      SMTP_SECURITY: starttls
+      SMTP_FROM: ${SMTP_ADDRESS}
+      SMTP_USERNAME: ${SMTP_USERNAME}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+      DATABASE_URL: ${POSGRES_URL}
+    env_file:
+      - ../stack.env
