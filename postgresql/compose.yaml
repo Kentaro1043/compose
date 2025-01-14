@@ -6,6 +6,13 @@ volumes:
   preinitdb:
     name: postgresql_preinitdb
 
+networks:
+  internal:
+    name: postgresql_internal
+    internal: true
+  external:
+    name: postgresql_external
+
 services:
   postgresql:
     image: bitnami/postgresql
@@ -13,6 +20,9 @@ services:
     restart: unless-stopped
     ports:
       - 5432:5432
+    networks:
+      - internal
+      - external
     volumes:
       - data:/bitnami/postgresql
       - initdb:/docker-entrypoint-initdb.d
