@@ -23,7 +23,7 @@ services:
       - attachments:/attachments
     environment:
       DOMAIN: ${VW_DOMAIN}
-      SIGNUPS_ALLOWED: true
+      SIGNUPS_ALLOWED: ${VW_SIGNUPS_ALLOWED}
       INVIATION_ALLOWED: false
       PUSH_ENABLED: true
       PUSH_INSTALLATION_ID: ${VW_PUSH_INSTALLATION_ID}
