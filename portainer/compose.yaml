@@ -1,0 +1,23 @@
+name: portainer
+services:
+  portainer-ce:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: always
+    expose:
+      - 9443
+      - 8000
+    networks:
+      - cf-tunnel
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - data:/data
+
+volumes:
+  data:
+    name: portainer_data
+
+networks:
+  cf-tunnel:
+    name: cf-tunnel
+    external: true
