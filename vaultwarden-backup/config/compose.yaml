@@ -1,0 +1,15 @@
+name: vaultwarden-backup-config
+
+volumes:
+  rclone:
+    name: vaultwarden-backup_rclone
+
+services:
+  vw-backup:
+    image: ttionya/vaultwarden-backup:latest
+    command: rclone config
+    container_name: vaultwarden-backup-config
+    stdin_open: true
+    tty: true
+    volumes:
+      - rclone:/config
