@@ -5,6 +5,7 @@ volumes:
     name: vaultwarden-backup_rclone
   data:
     name: vaultwarden_data
+    external: true
 
 services:
   vw-backup:
