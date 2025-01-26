@@ -3,6 +3,8 @@ name: vaultwarden-backup-config
 volumes:
   rclone:
     name: vaultwarden-backup_rclone
+  data:
+    name: vaultwarden_data
 
 services:
   vw-backup:
@@ -13,3 +15,4 @@ services:
     tty: true
     volumes:
       - rclone:/config
+      - data:/bitwarden/data
