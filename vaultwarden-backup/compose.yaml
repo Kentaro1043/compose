@@ -27,3 +27,5 @@ services:
     volumes:
       - vw-data:/bitwarden/data/
       - rclone:/config/
+    env_file:
+      - ../stack.env
