@@ -12,7 +12,7 @@ networks:
 
 services:
   postgresql:
-    image: bitnami/postgresql
+    image: bitnami/postgresql:17.3.0
     container_name: postgresql
     restart: unless-stopped
     ports:

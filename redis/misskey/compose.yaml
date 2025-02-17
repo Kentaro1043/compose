@@ -4,7 +4,7 @@ volumes:
 
 services:
   redis:
-    image: bitnami/redis
+    image: bitnami/redis:7.4.2
     container_name: misskey_redis
     restart: unless-stopped
     ports:

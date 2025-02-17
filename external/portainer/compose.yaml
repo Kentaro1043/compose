@@ -1,7 +1,7 @@
 name: portainer
 services:
   portainer-ce:
-    image: portainer/portainer-ce:latest
+    image: portainer/portainer-ce:2.21.5
     container_name: portainer
     restart: always
     expose:
