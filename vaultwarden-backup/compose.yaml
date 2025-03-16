@@ -10,7 +10,7 @@ volumes:
 
 services:
   vw-backup:
-    image: ttionya/vaultwarden-backup:1.23.1
+    image: ttionya/vaultwarden-backup:1.24.0
     container_name: vaultwarden-backup
     restart: unless-stopped
     environment:
