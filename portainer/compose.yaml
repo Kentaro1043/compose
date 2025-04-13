@@ -1,0 +1,22 @@
+name: portainer
+services:
+  portainer-ce:
+    image: portainer/portainer-ce:2.28.1
+    container_name: portainer
+    restart: unless-stopped
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - data:/data
+    labels:
+      "traefik.enable": true
+      "traefik.http.routers.portainer.rule": "Host(`portainer.kentaro1043.com`)"
+      "traefik.http.routers.portainer.entrypoints": "websecure"
+      "traefik.http.services.portainer.loadbalancer.server.port": "9000"
+      "traefik.http.router.portainer.service": "portainer"
+      "traefik.http.routers.frontend.tls.certresolver": "http-01-solver"
+
+volumes:
+  data:
+    name: portainer_data

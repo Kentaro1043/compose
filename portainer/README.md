@@ -1,0 +1,3 @@
+# portainer
+
+portainerのみportainer管理下に無いため、アップデートされたら手動でAnsibleを回す
