@@ -1,0 +1,26 @@
+services:
+  postgres_misskey:
+    image: groonga/pgroonga:4.0.1-debian-17
+    container_name: postgres_misskey
+    restart: unless-stopped
+    ports:
+      - 65432:5432
+    volumes:
+      - data:/bitnami/postgresql
+      - initdb:/docker-entrypoint-initdb.d
+      - preinitdb:/docker-entrypoint-preinitdb.d
+    environment:
+      POSTGRESQL_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRESQL_USERNAME: misskey
+      POSTGRESQL_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRESQL_DATABASE: misskey
+    env_file:
+      - ../../stack.env
+
+volumes:
+  data:
+    name: postgres_misskey_data
+  initdb:
+    name: postgres_misskey_initdb
+  preinitdb:
+    name: postgres_misskey_preinitdb
