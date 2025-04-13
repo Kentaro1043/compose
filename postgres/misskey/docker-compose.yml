@@ -6,9 +6,7 @@ services:
     ports:
       - 65432:5432
     volumes:
-      - data:/bitnami/postgresql
-      - initdb:/docker-entrypoint-initdb.d
-      - preinitdb:/docker-entrypoint-preinitdb.d
+      - data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: misskey
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -19,7 +17,3 @@ services:
 volumes:
   data:
     name: postgres_misskey_data
-  initdb:
-    name: postgres_misskey_initdb
-  preinitdb:
-    name: postgres_misskey_preinitdb
