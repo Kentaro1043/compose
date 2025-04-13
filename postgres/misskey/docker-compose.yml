@@ -10,7 +10,7 @@ services:
       - initdb:/docker-entrypoint-initdb.d
       - preinitdb:/docker-entrypoint-preinitdb.d
     environment:
-      POSTGRESQL_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRESQL_POSTGRES_PASSWORD: ${POSTGRES_POSTGRES_PASSWORD}
       POSTGRESQL_USERNAME: misskey
       POSTGRESQL_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRESQL_DATABASE: misskey
