@@ -6,6 +6,8 @@ services:
     restart: unless-stopped
     ports:
       - 9000:9000
+    expose:
+      - 9443
     networks:
       - cf-tunnel
     volumes:
