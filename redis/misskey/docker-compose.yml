@@ -1,0 +1,14 @@
+name: redis
+services:
+  redis:
+    image: redis:7.4.2
+    container_name: misskey_redis
+    restart: unless-stopped
+    ports:
+      - 56379:6379
+    volumes:
+      - data:/data
+
+volumes:
+  data:
+    name: misskey_redis_data
