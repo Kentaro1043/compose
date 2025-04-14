@@ -6,10 +6,6 @@ services:
     restart: unless-stopped
     ports:
       - 9000:9000
-    expose:
-      - 9443
-    networks:
-      - cf-tunnel
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - data:/data
@@ -17,8 +13,3 @@ services:
 volumes:
   data:
     name: portainer_data
-
-networks:
-  cf-tunnel:
-    name: cf-tunnel
-    external: true
