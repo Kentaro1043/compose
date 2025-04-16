@@ -1,0 +1,19 @@
+services:
+  postgres_vaultwarden:
+    image: postgres:17.4
+    container_name: postgres_vaultwarden
+    restart: unless-stopped
+    ports:
+      - 65433:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: vaultwarden
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: vaultwarden
+    env_file:
+      - ../../stack.env
+
+volumes:
+  data:
+    name: postgres_vaultwarden_data
