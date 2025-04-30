@@ -1,6 +1,6 @@
 services:
   postgres_misskey:
-    image: groonga/pgroonga:4.0.1-debian-17
+    image: groonga/pgroonga:4.0.1-debian-17@sha256:ca3e4c3f11d7a41a8395141a1c8e74236b48b10ef1a4548f3aaacee11bf593d9
     container_name: postgres_misskey
     restart: unless-stopped
     ports:
