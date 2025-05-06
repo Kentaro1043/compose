@@ -28,6 +28,13 @@
                 "digest",
                 "pinDigest"
             ]
+        },
+        {
+            "description": "Disable auto merge for portainer",
+            "automerge": false,
+            "matchPackageNames": [
+                "portainer/portainer-ce"
+            ]
         }
-    ]
+    ] 
 }
