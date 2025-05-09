@@ -1,6 +1,6 @@
 services:
   postgres_nextcloud:
-    image: postgres:16.9
+    image: postgres:16.9@sha256:64d54200dec0cb9d2d3e43f094e9aa47e7e6c8c246828a512969cccc39b5afb2
     container_name: postgres_nextcloud
     restart: unless-stopped
     ports:
