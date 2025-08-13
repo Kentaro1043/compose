@@ -1,7 +1,7 @@
 name: redis
 services:
   redis:
-    image: redis:8.0.3@sha256:f957ce918b51f3ac10414244bedd0043c47db44a819f98b9902af1bd9d0afcea
+    image: redis:8.0.3@sha256:1d6915eb047b8e73ab65e67950a29ee167248a08b0c046b29053aff33c5aeb5c
     container_name: misskey_redis
     restart: unless-stopped
     ports:
