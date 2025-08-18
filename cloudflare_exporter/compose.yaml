@@ -1,0 +1,9 @@
+services:
+  cloudflare_exporter:
+    image: ghcr.io/lablabs/cloudflare_exporter:0.0.16
+    container_name: cloudflare_exporter
+    restart: unless-stopped
+    ports:
+      - "48080:8080"
+    env_file:
+      - ../stack.env
