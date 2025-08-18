@@ -1,0 +1,19 @@
+services:
+  postgres_invidious:
+    image: postgres:17.5@sha256:ddfe3e8713e3ee5b8f286082cb12512488dfbf3f5a1ecb0b74a42e6055af0a5f
+    container_name: postgres_invidious
+    restart: unless-stopped
+    ports:
+      - 65435:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: invidious
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: invidious
+    env_file:
+      - ../../stack.env
+
+volumes:
+  data:
+    name: postgres_invidious_data
