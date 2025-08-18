@@ -1,6 +1,6 @@
 services:
   cloudflare_exporter:
-    image: ghcr.io/lablabs/cloudflare_exporter:0.0.16
+    image: ghcr.io/lablabs/cloudflare_exporter:0.0.16@sha256:70d74ec466026a4e5b92f4a14240c714666026cb6119b46fd19c78d37c9dc9b5
     container_name: cloudflare_exporter
     restart: unless-stopped
     ports:
