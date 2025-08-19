@@ -15,10 +15,6 @@ services:
       -c 'log_file_mode=0644'
       -c 'log_timezone=Asia/Tokyo'
       -c 'log_truncate_on_rotation=on'
-      -c 'log_statement=all'
-      -c 'log_connections=on'
-      -c 'log_disconnections=on'
-      -c 'log_lock_waits=on'
     environment:
       POSTGRES_USER: nextcloud
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
