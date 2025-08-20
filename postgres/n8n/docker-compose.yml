@@ -16,9 +16,9 @@ services:
       -c 'log_timezone=Asia/Tokyo'
       -c 'log_truncate_on_rotation=on'
     environment:
-      POSTGRES_USER: nextcloud
+      POSTGRES_USER: n8n
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: nextcloud
+      POSTGRES_DB: n8n
     env_file:
       - ../../stack.env
 
