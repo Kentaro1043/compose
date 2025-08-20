@@ -1,0 +1,27 @@
+services:
+  postgres_n8n:
+    image: postgres:17.6@sha256:29e0bb09c8e7e7fc265ea9f4367de9622e55bae6b0b97e7cce740c2d63c2ebc0
+    container_name: postgres_n8n
+    restart: unless-stopped
+    ports:
+      - 65436:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+      - /srv/postgres/log:/log
+    command: >
+      -c 'logging_collector=on'
+      -c 'log_directory=/log'
+      -c 'log_filename=n8n-%Y-%m-%d_%H%M%S.log'
+      -c 'log_file_mode=0644'
+      -c 'log_timezone=Asia/Tokyo'
+      -c 'log_truncate_on_rotation=on'
+    environment:
+      POSTGRES_USER: nextcloud
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: nextcloud
+    env_file:
+      - ../../stack.env
+
+volumes:
+  data:
+    name: postgres_n8n_data
