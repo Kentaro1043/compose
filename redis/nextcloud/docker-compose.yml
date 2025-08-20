@@ -1,7 +1,7 @@
 name: redis
 services:
   redis:
-    image: redis:8.0.3@sha256:30abfcce7d0527dceb081dfa17cea0a6c2c315bf5a4ec7b2799118e852fdd553
+    image: redis:8.2.1@sha256:cc2dfb8f5151da2684b4a09bd04b567f92d07591d91980eb3eca21df07e12760
     container_name: redis_nextcloud
     restart: unless-stopped
     ports:
